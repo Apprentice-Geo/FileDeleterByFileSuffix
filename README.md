@@ -1,6 +1,6 @@
 # FileDeleterByFileSuffix
 
-中文（Chinese）
+简体中文（Simplified Chinese）
 ---------------
 
 运行环境
@@ -39,6 +39,11 @@
 - 复合后缀应作为单个参数传入（例如 `tar.gz` 或 `.tar.gz`），否则可能无法匹配。
 - 程序对后缀匹配保持大小写敏感，如需不敏感请在代码中做小写规范化。
 - 在自动化场景使用 `-y` 时请小心：该选项会跳过删除确认。
+
+许可证
+- 本项目使用 MIT 许可证，详情请参见仓库中的 LICENSE 文件。
+- 版权：Copyright (c) 2025 github:Apprentice-Geo
+
 
 English
 -------
@@ -79,9 +84,8 @@ Notes
 - Matching is case-sensitive; normalize to lower-case in code if you want case-insensitive behavior.
 - Be careful when using `-y` in automated runs since it skips confirmation.
 
-License / 许可证
-- 本项目使用 MIT 许可证，详情请参见仓库中的 LICENSE 文件。
-- 版权：Copyright (c) 2025 github:Apprentice-Geo
+License 
 
 - This project is licensed under the MIT License — see the LICENSE file in the repository for details.
+
 - Copyright (c) 2025 github:Apprentice-Geo
