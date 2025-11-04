@@ -8,23 +8,25 @@ class FileDelBySuf:
 
     def setSuffixs(self,suffixs):
         if isinstance(suffixs, str):
-            self.suffixs = {suffixs.lstrip('.')}
+            self.suffixs = {suffixs}
         else:
-            self.suffixs = set(s.lstrip('.') for s in suffixs)
+            self.suffixs = set(list(suffixs))
 
     def setDryRun(self,dryRun):
         self.dryRun=dryRun
     
-    @staticmethod
-    def getSuffix(fileName,join_multi=True):
+    def getSuffix(self,fileName):
         name=Path(fileName).name
-        suffixes=[x.lstrip('.') for x in Path(name).suffixes]
-        if len(suffixes)>0:
-            return ".".join(suffixes) if join_multi else suffixes[-1]
+        for suf in self.suffixs:
+            if len(suf)>=len(name):
+                continue
+            elif suf.startswith('.'):
+                if name.endswith(suf):
+                    return True
         return None
     
     def deleter(self,path):
-        if self.getSuffix(path) not in self.suffixs:
+        if not self.getSuffix(path):
             return
         if self.dryRun:
             print(f"[Dry Run] Deleted {path}")
